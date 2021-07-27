@@ -1,0 +1,127 @@
+## Object − Objects have states and behaviors. 
+    Example-1: A dog has states - color, name, breed as well as behavior such as wagging their tail, 
+    barking, eating. An object is an instance of a class.
+    
+    Example-2: A car is an object whose states are: brand, colour, number-plate.
+    Behavior: Running on the road.
+
+## Class − A class can be defined as a template/blueprint that describes the behavior/state that the object 
+of its type supports.
+    Example: Blueprint of the house is class.
+
+## Methods − A method is basically a behavior. A class can contain many methods. It is in methods where the 
+logics are written, data is manipulated and all the actions are executed.
+    Example: The fuel indicator indicates the amount of fuel left in the car.
+
+## Instance Variables − Each object has its unique set of instance variables. An object's state is created 
+by the values assigned to these instance variables.
+
+Note: i. When the class is public, the name of the file should be the class name.
+
+      ii. Java is a case-sensitive language, which means that the identifiers AB, Ab, aB, and ab are different in Java.
+
+      iii. The first letter of the class should be in Uppercase
+
+      iv. If several words are used to form a name of the class, each inner word’s first letter should be 
+      in Upper Case, Underscore are allowed.
+            Example: class MyJavaProgram    // valid syntax
+                     class myJavaProgram    // invalid syntax
+
+      v. All the method names should start with a Lower Case letter.
+
+      vi. If several words are used to form the name of the method, then each first letter of the inner word 
+      should be in Upper Case, Underscore are allowed. (This is allowed in java and please correct the below 
+      example as well both are correct syntax as per Java but as standard people follow lowercase first char 
+      in function name)
+            Example: public void employeeRecords() // valid syntax
+                     public void EmployeeRecords() // valid syntax
+
+      vii. Access Modifiers: These modifiers control the scope of class and methods.
+            Access Modifiers: default, public, protected, private
+            Non-access Modifiers: final, abstract, strictfp
+
+------------------------------------------------------------------------------------------------------------------------
+
+# main method: main() in Java is the entry point for any Java program. It is always written 
+as public static void main(String[] args).
+
+    public: Public is an access modifier, which is used to specify who can access this method. Public means 
+    that this Method will be accessible by any Class.
+
+    static: It is a keyword in java which identifies it is class-based. main() is made static in Java so that 
+    it can be accessed without creating the instance of a Class. In case, main is not made static then the 
+    compiler will throw an error as main() is called by the JVM before any objects are made and only static 
+    methods can be directly invoked via the class. 
+
+    void: It is the return type of the method. Void defines the method which will not return any value.
+
+    main: It is the name of the method which is searched by JVM as a starting point for an application with 
+    a particular signature only. It is the method where the main execution occurs.
+
+    String args[]: It is the parameter passed to the main method.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+### Java Command Line Arguments: The java command-line argument is an argument i.e. passed at the time of running 
+the java program. The arguments passed from the console can be received in the java program and it can be 
+used as an input.
+
+    Example-01: Program to check for command line arguments.
+
+    class Hello{
+        public static void main(String[] args){
+
+        // check if length of args array is
+        // greater than 0
+        if (args.length > 0){
+            System.out.println("The command line"+" arguments are:");
+  
+            // iterating the args array and printing
+            // the command line arguments
+            for (String val:args)
+                System.out.println(val);
+        }
+        else
+            System.out.println("No command line "+"arguments found.");
+        }
+    }
+    -------------------------------------------------------------------------------------------------------
+
+    Example-02: Java Command Line Arguments.
+
+    class A{  
+        public static void main(String args[]){  
+            for(int i=0;i<args.length;i++)  
+            System.out.println(args[i]);  
+        }  
+    }  
+-----------------
+compile by > javac A.java  
+run by > java A sonoo jaiswal 1 3 abc 
+-------------
+Output: sonoo
+       jaiswal
+       1
+       3
+       abc  
+-------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
