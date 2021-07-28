@@ -251,7 +251,263 @@ class GeeksforGeeks {
             * Every array type implements the interfaces Cloneable and java.io.Serializable.
 ---------------------------------------------------------------------------------------------------------------------
 
+## Decision Making in Java (if, if-else, switch, break, continue, jump):
 
+    -> if: if statement is the most simple decision making statement. It is used to decide whether a certain 
+    statement or block of statements will be executed or not i.e if a certain condition is true then a block
+    of statement is executed otherwise not.
+
+    Example: 
+    
+        // Java program to illustrate If statement
+        class IfDemo{
+            public static void main(String args[]){
+                int i = 10;
+                if (i > 15)
+                    System.out.println("10 is less than 15");
+  
+        // This statement will be executed
+        // as if considers one statement by default
+        System.out.println("I am Not in if");
+            }
+        }
+
+        Output: I am Not in if
+
+
+     -> if-else: The if statement alone tells us that if a condition is true it will execute a block of 
+     statements and if the condition is false it won’t. But what if we want to do something else if the 
+     condition is false. Here comes the else statement. We can use the else statement with if statement to 
+     execute a block of code when the condition is false. 
+
+     Example:
+
+        // Java program to illustrate if-else statement
+        class IfElseDemo{
+	        public static void main(String args[]){
+		        int i = 10;
+                if (i < 15)
+			        System.out.println("i is smaller than 15");
+		        else
+			        System.out.println("i is greater than 15");
+	        }
+        }
+
+        Output: i is smaller than 15
+
+    -> nested-if: A nested if is an if statement that is the target of another if or else. Nested if statements 
+    means an if statement inside an if statement. Yes, java allows us to nest if statements within if statements. 
+    i.e, we can place an if statement inside another if statement.   
+
+    Example:
+
+        // Java program to illustrate nested-if statement
+        class NestedIfDemo{
+	        public static void main(String args[]){
+		        int i = 10;
+                if (i == 10){
+			    // First if statement
+			    if (i < 15)
+				    System.out.println("i is smaller than 15");
+
+			    // Nested - if statement
+			    // Will only be executed if statement above
+			    // it is true
+			    if (i < 12)
+				    System.out.println("i is smaller than 12 too");
+			    else
+				    System.out.println("i is greater than 15");
+		        }
+	        }
+        }
+
+        Output: i is smaller than 15
+                i is smaller than 12 too
+
+
+    -> if-else-if ladder: Here, a user can decide among multiple options.The if statements are executed from 
+    the top down. As soon as one of the conditions controlling the if is true, the statement associated with 
+    that if is executed, and the rest of the ladder is bypassed. If none of the conditions is true, then the 
+    final else statement will be executed.
+
+    Example:
+
+        // Java program to illustrate if-else-if ladder
+        class ifelseifDemo{
+	        public static void main(String args[]){
+                    int i = 20;
+                    if (i == 10)
+			            System.out.println("i is 10");
+		            else if (i == 15)
+			            System.out.println("i is 15");
+		            else if (i == 20)
+			            System.out.println("i is 20");
+		            else
+			            System.out.println("i is not present");
+	        }
+        }
+
+        Output: i is 20
+
+
+    -> switch-case: The switch statement is a multiway branch statement. It provides an easy way to dispatch 
+    execution to different parts of code based on the value of the expression.
+
+    Example:
+
+    // Java program to illustrate switch-case
+    class SwitchCaseDemo{
+	    public static void main(String args[]){
+		    int i = 9;
+		    switch (i)
+		    {
+		    case 0:
+			    System.out.println("i is zero.");
+			    break;
+		    case 1:
+			    System.out.println("i is one.");
+			    break;
+		    case 2:
+			    System.out.println("i is two.");
+			    break;
+		    default:
+			    System.out.println("i is greater than 2.");
+		    }
+	    }
+    }
+
+    Output: i is greater than 2.
+
+        *** jump: Java supports three jump statement: break, continue and return. These three statements 
+        transfer control to other part of the program.
+
+            i. Break: Using break, we can force immediate termination of a loop, bypassing the conditional 
+            expression and any remaining code in the body of the loop.
+
+                Note: Break, when used inside a set of nested loops, will only break out of the innermost loop.
+
+                    In Java, break is majorly used for:
+                        * Terminate a sequence in a switch statement (discussed above).
+                        * To exit a loop.
+                        * Used as a “civilized” form of goto.
+
+            Example 01: 
+
+            // Java program to illustrate using
+            // break to exit a loop
+            class BreakLoopDemo{
+	            public static void main(String args[]){
+		            // Initially loop is set to run from 0-9
+		            for (int i = 0; i < 10; i++){
+			        // terminate loop when i is 5.
+			            if (i == 5)
+				        break;
+			        System.out.println("i: " + i);
+		            }
+		            System.out.println("Loop complete.");
+	            }
+            }
+
+            Output: i: 0
+                    i: 1
+                    i: 2
+                    i: 3
+                    i: 4
+                    Loop complete.
+ ---------------------------------     
+
+            Example 02: Now, break statement can be use to jump out of target block.
+                        Note: You cannot break to any label which is not defined for an enclosing block.
+
+                // Java program to illustrate using break with goto
+                class BreakLabelDemo{
+	                public static void main(String args[]){
+		                boolean t = true;
+
+		                // label first
+		                first:
+		                {
+			                // Illegal statement here as label second is not
+			                // introduced yet break second;
+			                second:
+			                {
+				                third:
+				                {
+					                // Before break
+					                System.out.println("Before the break statement");
+
+					                // break will take the control out of
+					                // second label
+					                if (t)
+						                break second;
+					                System.out.println("This won't execute.");
+				                }
+				                System.out.println("This won't execute.");
+			                }
+
+			                // First block
+			                System.out.println("This is after second block.");
+		                }
+	                }
+                }
+
+                Output: Before the break.
+                        This is after second block.
+
+
+            ii. Continue: Sometimes it is useful to force an early iteration of a loop. That is, you might want 
+            to continue running the loop but stop processing the remainder of the code in its body for this particular 
+            iteration. This is, in effect, a goto just past the body of the loop, to the loop’s end. 
+            The continue statement performs such an action.
+
+            Example: 
+
+            // Java program to illustrate using
+            // continue in an if statement
+            class ContinueDemo{
+	            public static void main(String args[]){
+		            for (int i = 0; i < 10; i++){
+			            // If the number is even
+			            // skip and continue
+			            if (i%2 == 0)
+				            continue;
+
+			            // If number is odd, print it
+			            System.out.print(i + " ");
+		            }
+	            }
+            }
+
+            Output: 1 3 5 7 9 
+
+
+            iii. Return:The return statement is used to explicitly return from a method. That is, it causes 
+            a program control to transfer back to the caller of the method.
+
+            Example: 
+
+            // Java program to illustrate using return
+            class Return{
+	            public static void main(String args[]){
+		            boolean t = true;
+		            System.out.println("Before the return.");
+	
+		            if (t)
+			            return;
+
+		            // Compiler will bypass every statement
+		            // after return
+		            System.out.println("This won't execute.");
+	            }
+            }
+
+            Output: Before the return.
+--------------------------------------------------------------------------------------------------------------------
+
+
+
+ 
+  
 
 
 
